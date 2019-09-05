@@ -6,16 +6,26 @@ InputWindow = tk.Tk()
 InputWindow.geometry('500x200')
 InputWindow.title('Input')
 InputWindow.configure(bg='#0084ff')
+
 EntryLocal = tk.Entry(InputWindow, bg='#e42bff')
-EntryLocal.place(x=60, y=40)
+EntryLocal.place(x=80, y=40)
+
 string = tk.StringVar()
 string.set('<-input local ip here')
 LocalLabel = tk.Label(InputWindow, textvariable=string
                       , bg='#0084ff', fg='black',
                       font=('Arial', 12))
-LocalLabel.place(x=240, y=40)
+LocalLabel.place(x=300, y=40)
 
 EntryCloud = tk.Entry(InputWindow, bg='#e43bff')
+EntryCloud.place(x=300, y=80)
+
+string_2 = tk.StringVar()
+string_2.set('input cloud ip here->')
+CloudLabel = tk.Label(InputWindow, textvariable=string_2
+                      , bg='#0084ff', fg='black',
+                      font=('Arial', 12))
+CloudLabel.place(x=80, y=80)
 InputWindow.mainloop()
 
 
@@ -29,3 +39,5 @@ def confirm():
     Local_ip = EntryLocal.get()
     Cloud_ip = EntryCloud.get()
     return
+
+# TODO:Finish the button
