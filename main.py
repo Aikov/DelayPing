@@ -1,11 +1,22 @@
-import pythonping
+import tkinter as tk
 
-a = pythonping.ping(target='192.168.0.1',count=1)
-print(a)
-print(type(a))
-a = str(a)
-print(a)
-print(type(a))
-pos1 = a.find('in ') + 3
-pos2 = a.find('ms')
-print(a[pos1:pos2])
+from Tool import *
+
+InputWindow = tk.Tk()
+InputWindow.geometry('200x500')
+InputWindow.title('Input')
+InputWindow.configure(bg='#0084ff')
+EntryLocal = tk.Entry(InputWindow, bg='#e42bff')
+EntryCloud = tk.Entry(InputWindow, bg='#e43bff')
+
+
+def my_exit():
+    error_log.close()
+    exit()
+
+
+def confirm():
+    global Local_ip, Cloud_ip
+    Local_ip = EntryLocal.get()
+    Cloud_ip = EntryCloud.get()
+    return
