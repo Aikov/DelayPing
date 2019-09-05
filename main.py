@@ -5,25 +5,25 @@ from Tool import *
 InputWindow = tk.Tk()
 InputWindow.geometry('500x200')
 InputWindow.title('Input')
-InputWindow.configure(bg='#0084ff')
+InputWindow.configure(bg='black')
 
-EntryLocal = tk.Entry(InputWindow, bg='#e42bff')
+EntryLocal = tk.Entry(InputWindow, bg='yellow', fg='black')
 EntryLocal.place(x=80, y=40)
 
 string = tk.StringVar()
 string.set('<-input local ip here')
 LocalLabel = tk.Label(InputWindow, textvariable=string
-                      , bg='#0084ff', fg='black',
+                      , bg='black', fg='yellow',
                       font=('Arial', 12))
 LocalLabel.place(x=300, y=40)
 
-EntryCloud = tk.Entry(InputWindow, bg='#e43bff')
+EntryCloud = tk.Entry(InputWindow, bg='yellow', fg='black')
 EntryCloud.place(x=300, y=80)
 
 string_2 = tk.StringVar()
 string_2.set('input cloud ip here->')
 CloudLabel = tk.Label(InputWindow, textvariable=string_2
-                      , bg='#0084ff', fg='black',
+                      , bg='black', fg='yellow',
                       font=('Arial', 12))
 CloudLabel.place(x=80, y=80)
 InputWindow.mainloop()
