@@ -82,12 +82,16 @@ def calc():
     if delta_delay < 0:
         calc()
     else:
-        string.set(delay1)
-        string_2.set(delay2)
-        string_3.set(str(delta_delay))
+        string.set('Local Delay ' + delay1 + 'ms')
+        string_2.set('Cloud Delay ' + delay2 + 'ms')
+        string_3.set('Delta Delay ' + '%.2f' % delta_delay + 'ms')
 
 
+calc()
 LocalLabel = tk.Label(master=Window, textvariable=string, bg='yellow', font=('Arial', 12), fg='black')
+LocalLabel.place(x=140, y=30)
 CloudLabel = tk.Label(master=Window, textvariable=string_2, bg='yellow', font=('Arial', 12), fg='black')
+CloudLabel.place(x=180, y=60)
 DeltaLabel = tk.Label(master=Window, textvariable=string_3, bg='yellow', font=('Arial', 12), fg='black')
+DeltaLabel.place(x=220, y=90)
 Window.mainloop()

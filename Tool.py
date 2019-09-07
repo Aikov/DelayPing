@@ -20,7 +20,7 @@ def ping_result(ip) -> tuple:
         eWriter.writerow(data)
         return False, 'Error check log file'
     a = str(a)
-    pos1 = a.find('in ')
+    pos1 = a.find('in ') + 3
     pos2 = a.find('ms')
     if pos1 is -1:
         return False, 'Timeout'
