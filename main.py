@@ -1,5 +1,6 @@
 import time
 import tkinter as tk
+import _thread as thread
 
 from Tool import *
 
@@ -87,11 +88,26 @@ def calc():
         string_3.set('Delta Delay ' + '%.2f' % delta_delay + 'ms')
 
 
+def update():
+    while True:
+        calc()
+        time.sleep(1)
+
+
 calc()
+print('check')
 LocalLabel = tk.Label(master=Window, textvariable=string, bg='yellow', font=('Arial', 12), fg='black')
-LocalLabel.place(x=140, y=30)
+LocalLabel.place(x=100, y=30)
 CloudLabel = tk.Label(master=Window, textvariable=string_2, bg='yellow', font=('Arial', 12), fg='black')
-CloudLabel.place(x=180, y=60)
+CloudLabel.place(x=150, y=60)
 DeltaLabel = tk.Label(master=Window, textvariable=string_3, bg='yellow', font=('Arial', 12), fg='black')
-DeltaLabel.place(x=220, y=90)
+DeltaLabel.place(x=200, y=90)
+ExitButton = tk.Button(Window, text='Exit', bg='yellow', font=('Arial', 14), command=my_exit, width=10,
+                       height=1)
+ExitButton.place(x=310, y=120)
+UpdateButton = tk.Button(Window, text='Update', bg='yellow', font=('Arial', 14), command=calc, width=10,
+                         height=1)
+UpdateButton.place(x=90, y=120)
+# thread.start_new_thread(update(), ())
+print('test')
 Window.mainloop()
