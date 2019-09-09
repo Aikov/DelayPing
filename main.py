@@ -89,9 +89,9 @@ def calc():
 
 
 def update():
+    global Window
     while True:
         calc()
-        time.sleep(1)
 
 
 calc()
@@ -107,7 +107,6 @@ ExitButton = tk.Button(Window, text='Exit', bg='yellow', font=('Arial', 14), com
 ExitButton.place(x=310, y=120)
 UpdateButton = tk.Button(Window, text='Update', bg='yellow', font=('Arial', 14), command=calc, width=10,
                          height=1)
-UpdateButton.place(x=90, y=120)
 # thread.start_new_thread(update(), ())
 print('test')
 Window.mainloop()
