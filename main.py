@@ -1,6 +1,5 @@
 import time
 import tkinter as tk
-import _thread as thread
 
 from Tool import *
 
@@ -81,11 +80,12 @@ def calc():
         my_exit()
     delta_delay = float(delay2) - float(delay1)
     if delta_delay < 0:
-        calc()
+        pass
     else:
         string.set('Local Delay ' + delay1 + 'ms')
         string_2.set('Cloud Delay ' + delay2 + 'ms')
         string_3.set('Delta Delay ' + '%.2f' % delta_delay + 'ms')
+    Window.after(1000, calc, )
 
 
 def update():
@@ -95,7 +95,6 @@ def update():
 
 
 calc()
-print('check')
 LocalLabel = tk.Label(master=Window, textvariable=string, bg='yellow', font=('Arial', 12), fg='black')
 LocalLabel.place(x=100, y=30)
 CloudLabel = tk.Label(master=Window, textvariable=string_2, bg='yellow', font=('Arial', 12), fg='black')
@@ -107,6 +106,6 @@ ExitButton = tk.Button(Window, text='Exit', bg='yellow', font=('Arial', 14), com
 ExitButton.place(x=310, y=120)
 UpdateButton = tk.Button(Window, text='Update', bg='yellow', font=('Arial', 14), command=calc, width=10,
                          height=1)
-# thread.start_new_thread(update(), ())
-print('test')
+UpdateButton.place(x=90, y=120)
+
 Window.mainloop()
